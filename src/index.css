@@ -1,0 +1,302 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    color-scheme: light;
+    --font-sans: 'Plus Jakarta Sans', 'Hind Siliguri', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+  }
+
+  .dark {
+    color-scheme: dark;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    padding-top: env(safe-area-inset-top, 0px);
+    overflow-x: hidden;
+  }
+
+  /* Fix native select/option/optgroup contrast in both Light and Dark modes */
+  select option,
+  select optgroup {
+    background-color: #ffffff;
+    color: #090a0d;
+  }
+
+  .dark select option,
+  .dark select optgroup {
+    background-color: #14171f;
+    color: #f4f4f5;
+  }
+
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Custom thin scrollbars */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(59, 130, 246, 0.25);
+  border-radius: 999px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+/* Light Mode: Soft Sky & Ice-Blue Frosted Glass Atmospheric Background (matching reference) */
+.ambient-aura {
+  position: relative;
+  background-color: #eaf3ff;
+  background-image:
+    radial-gradient(65% 45% at 15% 8%, rgba(191, 219, 254, 0.85) 0%, rgba(219, 234, 254, 0.45) 45%, transparent 78%),
+    radial-gradient(58% 45% at 92% 14%, rgba(147, 197, 253, 0.55) 0%, rgba(186, 230, 253, 0.28) 46%, transparent 78%),
+    radial-gradient(60% 48% at 62% 96%, rgba(191, 219, 254, 0.72) 0%, rgba(224, 242, 254, 0.35) 50%, transparent 82%),
+    linear-gradient(155deg, #f3f8ff 0%, #dcebfb 50%, #e7f1fd 100%);
+  background-attachment: fixed;
+}
+
+/* Dark Mode: Signature Obsidian + Organic Electric Lime-Green Atmospheric Background */
+.dark .ambient-aura {
+  background-color: #07080a;
+  background-image:
+    radial-gradient(50% 34% at 90% 2%, rgba(178, 244, 38, 0.44) 0%, rgba(145, 214, 24, 0.16) 40%, transparent 72%),
+    radial-gradient(42% 34% at 6% 42%, rgba(154, 230, 32, 0.18) 0%, transparent 70%),
+    radial-gradient(58% 36% at 64% 98%, rgba(178, 244, 38, 0.38) 0%, rgba(124, 196, 18, 0.12) 44%, transparent 74%);
+  background-attachment: fixed;
+}
+
+/* Frosted Glassmorphic Surface Utility */
+.glass-card {
+  background: rgba(255, 255, 255, 0.68);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.88),
+    0 14px 36px -8px rgba(37, 99, 235, 0.10);
+}
+
+.dark .glass-card {
+  background: rgba(15, 17, 22, 0.72);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.08),
+    0 20px 50px rgba(0, 0, 0, 0.52);
+}
+
+/* Print / PDF A4 Report Styles */
+@media print {
+  body * {
+    visibility: hidden !important;
+  }
+  #report-print-area,
+  #report-print-area * {
+    visibility: visible !important;
+  }
+  #report-print-area {
+    position: fixed !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    background: #ffffff !important;
+    color: #111827 !important;
+    padding: 12mm !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+}
+
+@page {
+  size: A4;
+  margin: 12mm;
+}
+
+@keyframes thModalIn {
+  from {
+    transform: translateY(14px) scale(0.985);
+  }
+  to {
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-modal-in {
+  animation: thModalIn 0.16s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes thFanSpin {
+  0% {
+    transform: scale(0.32) rotate(-900deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  75% {
+    transform: scale(1.06) rotate(-18deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+.animate-fan-spin {
+  animation: thFanSpin 1.25s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes thSplashOrbit {
+  0% {
+    transform: rotate(0deg) scale(0.85);
+    opacity: 0;
+  }
+  30% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: rotate(180deg) scale(1.05);
+    opacity: 0.5;
+  }
+}
+
+.animate-splash-orbit {
+  animation: thSplashOrbit 2.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes thSplashMedallion {
+  0% {
+    transform: scale(0.2) translateY(20px);
+    opacity: 0;
+  }
+  65% {
+    transform: scale(1.12) translateY(-3px);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-splash-medallion {
+  animation: thSplashMedallion 0.62s cubic-bezier(0.22, 1, 0.36, 1) 0.28s both;
+}
+
+@keyframes thSplashTakaPop {
+  0% {
+    transform: translateY(24px) scale(0.3);
+    opacity: 0;
+  }
+  60% {
+    transform: translateY(-4px) scale(1.18);
+    opacity: 1;
+  }
+  82% {
+    transform: translateY(1px) scale(0.95);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-splash-taka {
+  animation: thSplashTakaPop 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.42s both;
+}
+
+@keyframes thSplashPulseRing {
+  0% {
+    transform: scale(0.55);
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: scale(1.48);
+    opacity: 0;
+  }
+}
+
+.animate-splash-pulse {
+  animation: thSplashPulseRing 1.15s cubic-bezier(0.16, 1, 0.3, 1) 0.45s both;
+}
+
+@keyframes thSplashCharRise {
+  0% {
+    transform: translateY(22px) scale(0.86);
+    opacity: 0;
+    filter: blur(4px);
+  }
+  72% {
+    transform: translateY(-3px) scale(1.03);
+    opacity: 1;
+    filter: blur(0px);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+    filter: blur(0px);
+  }
+}
+
+.animate-splash-char {
+  display: inline-block;
+  animation: thSplashCharRise 0.56s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes thSplashLineExpand {
+  0% {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+.animate-splash-line {
+  transform-origin: center;
+  animation: thSplashLineExpand 0.55s cubic-bezier(0.16, 1, 0.3, 1) 1.02s both;
+}
+
+@keyframes thSplashFadeUp {
+  0% {
+    transform: translateY(14px);
+    opacity: 0;
+    letter-spacing: 0.14em;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+    letter-spacing: 0.04em;
+  }
+}
+
+.animate-splash-subtitle {
+  animation: thSplashFadeUp 0.55s cubic-bezier(0.16, 1, 0.3, 1) 1.16s both;
+}
+
+.animate-splash-credit {
+  animation: thSplashFadeUp 0.55s cubic-bezier(0.16, 1, 0.3, 1) 1.3s both;
+}
+
+

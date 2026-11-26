@@ -1,0 +1,8 @@
+{
+  "name": "হিসাব — Hisab",
+  "description": "Kinetic personal finance, ledger, loan, and expense tracker with light and dark themes.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

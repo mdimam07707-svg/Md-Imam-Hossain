@@ -1,0 +1,16 @@
+{
+  "name": "Takar Hisab",
+  "short_name": "Takar Hisab",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#090A0D",
+  "theme_color": "#090A0D",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

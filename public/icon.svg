@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <defs>
+    <linearGradient id="th-dark" x1="25" y1="15" x2="95" y2="95" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0C1710" />
+      <stop offset="55%" stop-color="#265432" />
+      <stop offset="100%" stop-color="#5BB963" />
+    </linearGradient>
+    <linearGradient id="th-bright" x1="16" y1="62" x2="96" y2="82" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#86E37D" />
+      <stop offset="55%" stop-color="#3B8947" />
+      <stop offset="100%" stop-color="#0C1710" />
+    </linearGradient>
+    <linearGradient id="th-center" x1="65" y1="100" x2="135" y2="100" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#77D972" />
+      <stop offset="48%" stop-color="#2F6E3D" />
+      <stop offset="100%" stop-color="#0A110D" />
+    </linearGradient>
+  </defs>
+  <g>
+    <path d="M96 92 C98 52 72 22 54 14 C32 32 22 52 16 66 C48 44 74 62 88 94 Z" fill="url(#th-dark)" />
+    <path d="M16 66 C26 88 52 98 92 96 C78 66 54 44 16 66 Z" fill="url(#th-bright)" />
+  </g>
+  <g transform="rotate(90 100 100)">
+    <path d="M96 92 C98 52 72 22 54 14 C32 32 22 52 16 66 C48 44 74 62 88 94 Z" fill="url(#th-dark)" />
+    <path d="M16 66 C26 88 52 98 92 96 C78 66 54 44 16 66 Z" fill="url(#th-bright)" />
+  </g>
+  <g transform="rotate(180 100 100)">
+    <path d="M96 92 C98 52 72 22 54 14 C32 32 22 52 16 66 C48 44 74 62 88 94 Z" fill="url(#th-dark)" />
+    <path d="M16 66 C26 88 52 98 92 96 C78 66 54 44 16 66 Z" fill="url(#th-bright)" />
+  </g>
+  <g transform="rotate(270 100 100)">
+    <path d="M96 92 C98 52 72 22 54 14 C32 32 22 52 16 66 C48 44 74 62 88 94 Z" fill="url(#th-dark)" />
+    <path d="M16 66 C26 88 52 98 92 96 C78 66 54 44 16 66 Z" fill="url(#th-bright)" />
+  </g>
+  <circle cx="100" cy="100" r="34" fill="url(#th-center)" stroke="#FFFFFF" stroke-width="3.5" />
+  <text x="100" y="115" text-anchor="middle" font-family="'Hind Siliguri', 'Plus Jakarta Sans', sans-serif" font-size="44" font-weight="800" fill="#FFFFFF">৳</text>
+</svg>
